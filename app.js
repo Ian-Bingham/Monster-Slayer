@@ -21,6 +21,11 @@ new Vue({
         text: `You hit the Monster for ${yourAttack} HP`,
         class: 'player-turn'
       })
+      
+      if (this.isGameOver()) {
+        return
+      }
+
       this.handleMonsterTurn()
     },
     handleHeal() {
@@ -39,9 +44,28 @@ new Vue({
         text: `The Monster hit You for ${monsterAttack} HP`,
         class: 'monster-turn',
       })
+      
+      if (this.isGameOver()) {
+        return
+      }
     },
     handleGiveup() {
       this.gameStart = false
+    },
+    isGameOver() {
+      if (this.monster <= 0) {
+        alert('You win!')
+        this.gameStart = false
+        return true
+      }
+
+      if (this.you <= 0) {
+        alert('You lost... :(')
+        this.gameStart = false
+        return true
+      }
+
+      return false
     }
   }
 })
