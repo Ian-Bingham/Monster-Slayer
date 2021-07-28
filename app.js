@@ -33,5 +33,13 @@ new Vue({
         class: 'player-turn'
       })
     },
+    handleHeal() {
+      const heal = Math.floor(Math.random() * 10) + 1
+      this.you += heal
+      this.logs.unshift({
+        text: `You healed yourself for ${heal} HP`,
+        class: 'player-turn'
+      })
+    }
   }
 })
