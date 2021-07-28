@@ -6,20 +6,6 @@ new Vue({
     monster: 100,
     logs: []
   },
-  watch: {
-    monster() {
-      const vm = this
-      
-      setTimeout(function() {
-        const monsterAttack = Math.floor(Math.random() * 10) + 1
-        vm.you -= monsterAttack
-        vm.logs.unshift({
-          text: `The Monster hit You for ${monsterAttack} HP`,
-          class: 'monster-turn',
-        })
-      }, 500)
-    }
-  },
   methods: {
     handleNewGameClick() {
       this.gameStart = true
@@ -32,6 +18,7 @@ new Vue({
         text: `You hit the Monster for ${yourAttack} HP`,
         class: 'player-turn'
       })
+      this.handleMonsterTurn()
     },
     handleHeal() {
       const heal = Math.floor(Math.random() * 10) + 1
@@ -40,6 +27,19 @@ new Vue({
         text: `You healed yourself for ${heal} HP`,
         class: 'player-turn'
       })
+      this.handleMonsterTurn()
+    },
+    handleMonsterTurn() {
+      const vm = this
+      
+      setTimeout(function() {
+        const monsterAttack = Math.floor(Math.random() * 10) + 1
+        vm.you -= monsterAttack
+        vm.logs.unshift({
+          text: `The Monster hit You for ${monsterAttack} HP`,
+          class: 'monster-turn',
+        })
+      }, 500)
     }
   }
 })
