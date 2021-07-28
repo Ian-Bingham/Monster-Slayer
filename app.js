@@ -9,6 +9,9 @@ new Vue({
   methods: {
     handleNewGameClick() {
       this.gameStart = true
+      this.you = 100
+      this.monster = 100
+      this.logs = []
     },
     handleAttack({ isSpecial }) {
       const attackModifier = isSpecial ? 10 : 1
@@ -39,9 +42,6 @@ new Vue({
     },
     handleGiveup() {
       this.gameStart = false
-      this.you = 100
-      this.monster = 100
-      this.logs = []
     }
   }
 })
