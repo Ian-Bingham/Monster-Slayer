@@ -30,16 +30,12 @@ new Vue({
       this.handleMonsterTurn()
     },
     handleMonsterTurn() {
-      const vm = this
-      
-      setTimeout(function() {
-        const monsterAttack = Math.floor(Math.random() * 10) + 1
-        vm.you -= monsterAttack
-        vm.logs.unshift({
-          text: `The Monster hit You for ${monsterAttack} HP`,
-          class: 'monster-turn',
-        })
-      }, 500)
+      const monsterAttack = Math.floor(Math.random() * 10) + 1
+      this.you -= monsterAttack
+      this.logs.unshift({
+        text: `The Monster hit You for ${monsterAttack} HP`,
+        class: 'monster-turn',
+      })
     },
     handleGiveup() {
       this.gameStart = false
