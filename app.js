@@ -29,12 +29,14 @@ new Vue({
       this.handleMonsterTurn()
     },
     handleHeal() {
-      const heal = Math.floor(Math.random() * 10) + 1
+      const heal = 10
       this.you += heal
+
       this.logs.unshift({
         text: `You healed yourself for ${heal} HP`,
         class: 'player-turn'
       })
+
       this.handleMonsterTurn()
     },
     handleMonsterTurn() {

@@ -43,7 +43,7 @@
         <div class="small-12 columns">
             <button id="attack" @click="handleAttack({ isSpecial: false })">ATTACK</button>
             <button id="special-attack" @click="handleAttack({ isSpecial: true })">SPECIAL ATTACK</button>
-            <button id="heal" @click="handleHeal">HEAL</button>
+            <button id="heal" @click="handleHeal" :disabled="you > 90">HEAL</button>
             <button id="give-up" @click="handleGiveup">GIVE UP</button>
         </div>
     </section>
