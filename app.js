@@ -40,6 +40,12 @@ new Vue({
           class: 'monster-turn',
         })
       }, 500)
+    },
+    handleGiveup() {
+      this.gameStart = false
+      this.you = 100
+      this.monster = 100
+      this.logs = []
     }
   }
 })
