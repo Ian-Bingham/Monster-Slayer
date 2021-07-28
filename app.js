@@ -24,13 +24,14 @@ new Vue({
     handleNewGameClick() {
       this.gameStart = true
     },
-    handleAttack() {
-      const yourAttack = Math.floor(Math.random() * 10) + 1
+    handleAttack({ isSpecial }) {
+      const attackModifier = isSpecial ? 10 : 1
+      const yourAttack = Math.floor(Math.random() * 10) + attackModifier
       this.monster -= yourAttack
       this.logs.unshift({
         text: `You hit the Monster for ${yourAttack} HP`,
         class: 'player-turn'
       })
-    }
+    },
   }
 })
